@@ -20,3 +20,6 @@ puts "Seeding items"
 Item.create!(name:"Nice hiking carrier", description: "super nice", category:"hiking carrier", price_per_day: 28, location: "Zurich", user_id: 1)
 Item.create!(name:"Really good stroller", description: "super duper nice", category:"jogging stroller", price_per_day: 35, location: "Baden", user_id: 2)
 
+puts "Seeding booking"
+Booking.create!(total_price: 35, start_day:DateTime.new(2020,3,2), end_day:DateTime.new(2020,3,3),user_id: 1, item_id: 2)
+Booking.create!(total_price: 28, start_day:DateTime.new(2020,4,1), end_day:DateTime.new(2020,4,2),user_id: 3, item_id: 1)
