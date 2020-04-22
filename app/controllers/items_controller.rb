@@ -4,9 +4,11 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @parameter  = params[:search]
-    p @parameter
-    puts Item.find_by(category: params[:search])
+    if params[:search].blank?
+      @results = Item.all
+    else
+      @results = Item.where(category: params[:search])
+    end
   end
 
   def show
