@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :destroy]
 
-  def index
-    @user = User.find(@item.user_id)
-    @bookings = Booking.all
-  end
+  # def index
+  #   @user = User.find(@item.user_id)
+  #   @bookings = Booking.all
+  # end
 
   def new
     @item = Item.find(params[:item_id])
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.item = @item
     if @booking.save
-      redirect_to item_path(@item), notice: 'Booking was successfully created.'
+      redirect_to items_path, notice: 'Booking was successfully created.'
     else
       render :new
     end
