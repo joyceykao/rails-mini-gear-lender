@@ -10,6 +10,12 @@
 <% end %>
 </div>
 
-<% @results.each do |result| %>
-        <%= result.name %><br>
-    <% end %>
+<h1>Stuff for rent</h1>
+
+<ul>
+  <% @results.each do |item| %>
+          <li><%= link_to item.name, item, id: "link" %></li>
+        <% end %>
+</ul>
+
+<%= link_to 'Add gear to lend', new_item_path %>

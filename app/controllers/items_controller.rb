@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    if params[:search].blank?
+      @items = Item.all
+    else
+      @items = Item.where(category: params[:search])
+    end
   end
 
   def search
