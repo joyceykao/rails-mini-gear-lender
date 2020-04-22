@@ -1,0 +1,16 @@
+<div class="banner">
+  <h1>Bookings</h1>
+  <p><span id="banner-typed-text"></span></p>
+</div>
+
+<div class="container mt-4">
+  <div class="cards">
+    <% @bookings.each do |booking| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path item.photo.key %>)">
+        <div class="d-flex justify-content-between m-2">
+          <div><%= link_to item.name, item_path(@item) %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
