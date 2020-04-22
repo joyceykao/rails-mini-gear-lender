@@ -9,11 +9,18 @@ class ItemsController < ApplicationController
   end
 
   def new
-
+    @item = Item.new
   end
 
   def create
-
+    @item = Item.new(item_params)
+    if @item.save
+      # uncomment below when show method/view is complete
+      # redirect_to item_path(@item)
+      redirect_to items_path(index)
+    else
+      render :new
+    end
   end
 
   def edit
