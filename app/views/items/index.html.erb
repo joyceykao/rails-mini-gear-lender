@@ -1,0 +1,7 @@
+<h1>Stuff for rent</h1>
+
+<ul>
+  <% @items.each do |item| %>
+          <li><%= link_to item.name, item, id: "link" %></li>
+        <% end %>
+</ul>
