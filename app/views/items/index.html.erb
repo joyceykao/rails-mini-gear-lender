@@ -2,7 +2,8 @@
 
 <ul>
   <% @items.each do |item| %>
-          <li><%= link_to item.name, item, id: "link" %></li>
+          <li><%= link_to item.name, item, id: "link" %><%= link_to 'Edit', edit_item_path(item) %></li>
+
         <% end %>
 </ul>
 
