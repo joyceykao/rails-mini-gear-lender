@@ -17,7 +17,7 @@
     <div class="col-12 col-lg-4">
       <div class="container">
         <!-- Map showing the location of the item -->
-        <img id="map" src='https://api.mapbox.com/[...]?access_token=pk.eyJ1IjoiZXBhbGFuZGVyIiwiYSI6ImNrOGs5aHE3cjAzMmozbXA2NjIyY3VtbWsifQ.f96OEiie-0YcCe5xKQgtgw'>
+        <img id="map" src='https://api.mapbox.com/[@item.location]?access_token=pk.eyJ1IjoiZXBhbGFuZGVyIiwiYSI6ImNrOGs5aHE3cjAzMmozbXA2NjIyY3VtbWsifQ.f96OEiie-0YcCe5xKQgtgw'>
       </div>
     </div>
   </div>
@@ -26,5 +26,5 @@
 
 <div class="container">
   <%= link_to 'Back', items_path, class: "btn btn-primary mt-4" %>
-  <%= link_to 'Booking', new_item_booking_path, class: "btn btn-primary mt-4" %>
+  <%= link_to 'Booking', new_item_booking_path(@item), class: "btn btn-primary mt-4" %>
 </div>
