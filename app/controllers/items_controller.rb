@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update(item_params)
-      redirect_to item_path(@item), notice: 'Booking was successfully updated.'
+      redirect_to item_path(@item), notice: 'Item was successfully updated.'
     else
       render :edit
     end
