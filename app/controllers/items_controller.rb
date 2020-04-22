@@ -3,6 +3,12 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def search
+    @parameter  = params[:search]
+    p @parameter
+    puts Item.find_by(category: params[:search])
+  end
+
   def show
     @item = Item.find(params[:id])
     @user = User.find(@item.user_id)

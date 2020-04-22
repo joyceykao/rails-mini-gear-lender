@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :update, :edit, :index, :show]
   end
   resources :bookings, only: [:destroy]
+
+  get '/search' => 'items#search', :as => 'search_page'
 end
