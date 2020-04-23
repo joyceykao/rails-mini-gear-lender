@@ -10,14 +10,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def search
-    if params[:search].blank?
-      @results = Item.all
-    else
-      @results = Item.where(category: params[:search])
-    end
-  end
-
   def show
     @item = Item.find(params[:id])
     @user = User.find(@item.user_id)
