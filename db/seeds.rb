@@ -1,3 +1,4 @@
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -12,15 +13,24 @@ Item.destroy_all
 Booking.destroy_all
 
 puts "Seeding users"
-User.create!(email: "lalala@gmail.com", password: "hellocucumber")
-User.create!(email: "somebody@gmail.com", password: "password123")
-User.create!(email: "dallas@hotmail.com", password: "yeehaw2020")
+user1 = User.create!(email: "lalala@gmail.com", password: "hellocucumber")
+user2 = User.create!(email: "somebody@gmail.com", password: "password123")
+user3 = User.create!(email: "dallas@hotmail.com", password: "yeehaw2020")
 
 puts "Seeding items"
-Item.create!(name:"Nice hiking carrier", description: "super nice", category:"hiking carrier/backpack", price_per_day: 28, location: "Zurich", user_id: 1)
-Item.create!(name:"Really good stroller", description: "super duper nice", category:"stroller/pram", price_per_day: 35, location: "Baden", user_id: 2)
-Item.create!(name:"Dwarf adapter for behind your bike", description: "super safe", category:"bike trailer", price_per_day: 35, location: "Basel", user_id: 3)
+file = URI.open('https://images.pexels.com/photos/532803/pexels-photo-532803.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')
+hiking_carrier = Item.create!(name:"Nice hiking carrier", description: "super nice", category:"hiking carrier/backpack", price_per_day: 28, location: "Zurich", user: user1)
+hiking_carrier.photos.attach(io: file, filename: 'hiking_carrier.jpeg', content_type: 'image/jpeg')
 
-puts "Seeding booking"
-Booking.create!(total_price: 35, start_day:DateTime.new(2020,3,2), end_day:DateTime.new(2020,3,3),user_id: 1, item_id: 2)
-Booking.create!(total_price: 28, start_day:DateTime.new(2020,4,1), end_day:DateTime.new(2020,4,2),user_id: 3, item_id: 1)
+file = URI.open('https://images.pexels.com/photos/1007773/pexels-photo-1007773.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500')
+stroller = Item.create!(name:"Really good stroller", description: "super duper nice", category:"stroller/pram", price_per_day: 35, location: "Baden", user: user2)
+stroller.photos.attach(io: file, filename: 'stroller.jpeg', content_type: 'image/jpeg')
+stroller.save!
+
+file = URI.open('https://images.unsplash.com/photo-1567408332664-24ed894cf462?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80')
+dwarf_adapter = Item.create!(name:"Dwarf adapter for behind your bike", description: "super safe", category:"bike trailer", price_per_day: 35, location: "Basel", user: user3)
+dwarf_adapter.photos.attach(io: file, filename: 'dwarf_adapter.jpeg', content_type: 'image/jpeg')
+
+puts "Seeding bookings"
+Booking.create!(total_price: 35, start_day:DateTime.new(2020,3,2), end_day:DateTime.new(2020,3,3),user: user1, item: Item.last)
+Booking.create!(total_price: 28, start_day:DateTime.new(2020,4,1), end_day:DateTime.new(2020,4,2),user: user3, item: Item.first)
