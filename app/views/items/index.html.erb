@@ -1,4 +1,3 @@
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526301352057-62f44bf4e826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80);">
   <div class="container">
     <h1>Stuff for rent</h1>
@@ -7,14 +6,16 @@
 </div>
 
 <div class="container">
-  <%= form_tag(search_page_path, :method => "get",
-    class: 'navbar-form navbar-left') do %>
-      <div class="input-group">
-        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-          <div class="input-group-btn">
-            <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-          </div>
-      </div>
+   <%= form_tag items_path, method: :get do %>
+    <%= select_tag :what, options_for_select([ "","stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "stroller/pram") %>
+    in
+    <%= text_field_tag :where,
+    params[:where],
+    class: "form-control",
+    placeholder: "city?"
+      %>
+    <%= submit_tag "Show me the gear!", class: "btn btn-primary" %>
+  <% end %>
   <% end %>
 </div>
 
@@ -33,5 +34,6 @@
 <div class="container mt-4">
   <%= link_to 'Add gear to lend', new_item_path, class:"btn btn-ghost" %>
 </div>
+
 
 
