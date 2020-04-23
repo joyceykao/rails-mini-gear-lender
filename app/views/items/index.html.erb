@@ -1,11 +1,7 @@
 
 <div class="container">
   <%= form_tag items_path, method: :get do %>
-    <%= text_field_tag :search,
-      params[:search],
-      class: "form-control",
-      placeholder: "bike trailer, etc."
-    %>
+    <%= select_tag :search, options_for_select([ "stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "stroller/pram") %>
     <%= submit_tag "Show me the gear!", class: "btn btn-primary" %>
   <% end %>
 </div>
