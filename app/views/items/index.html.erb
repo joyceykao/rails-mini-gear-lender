@@ -24,6 +24,11 @@
       <div class="card-category mt-4" style="">
       <div class="d-flex justify-content-between m-2">
       <%= link_to item.name, item, id: "link" %><%= link_to 'Edit', edit_item_path(item) %>
+      <%= link_to item_path(item),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
       </div>
     </div>
   <% end %>
