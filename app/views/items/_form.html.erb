@@ -1,11 +1,11 @@
 <%= simple_form_for(@item) do |f| %>
 
     <div class="form-inputs">
-      <%= f.input :name %>
+      <%= f.input :name, label: 'Tagline for your gear', hint: 'e.g. Amazing jogging stroller ready for adventures' %>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :description %>
+      <%= f.input :description, label: 'Add a description', hint: 'Tell us a bit more about the features, condition, quirks, etc. ' %>
     </div>
 
     <div class="form-inputs">
@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :location %>
+      <%= f.input :location, label: 'Where can someone pick it up?', hint: 'Please only put city. Never your personal address.'%>
     </div>
 
     <div class="form-inputs">
