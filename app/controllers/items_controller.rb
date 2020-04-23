@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user = current_user
     if @item.save
       # uncomment below when show method/view is complete
       # redirect_to item_path(@item)
