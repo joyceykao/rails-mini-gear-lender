@@ -2,20 +2,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  padding: 16px;
+  flex-grow: 1;
 }
+
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-around;
   color: white;
   font-size: 16px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-weight: bolder;
 }
 
 .card-category a {
@@ -28,3 +30,14 @@
   color: #2e241b;
 }
 
+@media(max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
