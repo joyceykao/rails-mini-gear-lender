@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="mt-4 col-sm-12 col-lg-6">
-      <h3>Create a Booking for <%= @item.name %></h3>
+      <h3>Book <%= @item.name %></h3>
       <%= simple_form_for [@item, @booking] do |f| %>
         <%= f.input :user_id %>
         <%= f.input :start_day %>
@@ -13,5 +13,3 @@
   <hr>
     <%= link_to 'Back', item_path(@item), class: "btn btn-primary" %>
 </div>
-
-<!-- WHERE TO PUT "total_price"???? -->

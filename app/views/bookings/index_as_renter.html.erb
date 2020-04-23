@@ -1,5 +1,5 @@
 <div class="text-center mt-4">
-  <h1>All Bookings for <%= @item.name %></h1>
+  <h2> See all your <strong>bookings</strong> for items you are <strong>renting</strong>: </h2>
 </div>
 
 <div class="container mt-4">
@@ -9,6 +9,7 @@
         <% @bookings.each do |booking| %>
         <div class="booking-details">
           <ul class="list-unstyled hidden-sm hidden-xs padded">
+            <li><strong>Booking ID: <%= booking.id %> - <%= booking.item.name %></strong></li>
             <li>Dates: <%= booking.start_day %> to <%= booking.end_day %></li>
             <li>Location: <%= booking.item.location %></li>
             <li>Total Price: <%= booking.total_price %> CHF</li>
@@ -16,9 +17,10 @@
           </ul>
         </div>
         <% end %>
-        </div>
+      </div>
     </div>
   </div>
   <hr>
-  <%= link_to "Back to Home", items_path, class:"btn btn-default btn-lg " %>
+<%= link_to "Back to Home", items_path, class:"btn btn-default btn-lg " %>
 </div>
+
