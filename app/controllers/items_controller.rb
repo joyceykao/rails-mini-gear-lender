@@ -31,9 +31,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     if @item.save
-      # uncomment below when show method/view is complete
-      # redirect_to item_path(@item)
-      redirect_to items_path(index)
+      redirect_to item_path(@item)
     else
       render :new
     end
