@@ -8,9 +8,9 @@
       <% @items.each do |item| %>
         <div class='product-body'>
           <h2><strong><%= item.name %></strong></h2>
-          <h4>Located in <strong><%= item.location %></strong></h4>
-          <h4>Description: <%=item.description%></h4>
-          <h4>Price: <strong><%= item.price_per_day %>CHF per day </strong></h4>
+          <p>Located in <strong><%= item.location %></strong></p>
+          <p>Description: <%=item.description%></p>
+          <p>Price: <strong><%= item.price_per_day %>CHF per day </strong></p>
         </div>
       <ul class="list-unstyled hidden-sm hidden-xs padded">
         <li class="text-right">
