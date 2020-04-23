@@ -1,24 +1,37 @@
 
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526301352057-62f44bf4e826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80);">
+  <div class="container">
+    <h1>Stuff for rent</h1>
+      <p>Get what you need from your neighboor</p>
+  </div>
+</div>
 
 <div class="container">
   <%= form_tag(search_page_path, :method => "get",
     class: 'navbar-form navbar-left') do %>
-  <div class="input-group">
-    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-    <div class="input-group-btn">
-      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-    </div>
-  </div>
-<% end %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+          <div class="input-group-btn">
+            <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+          </div>
+      </div>
+  <% end %>
 </div>
 
-<h1>Stuff for rent</h1>
+<div class="container">
+  <div class="cards">
+    <% @items.each do |item| %>
+      <div class="card-category mt-4" style="">
+      <div class="d-flex justify-content-between m-2">
+      <%= link_to item.name, item, id: "link" %><%= link_to 'Edit', edit_item_path(item) %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
 
-<ul>
-  <% @items.each do |item| %>
-    <li><%= link_to item.name, item, id: "link" %><%= link_to 'Edit', edit_item_path(item) %></li>
+<div class="container mt-4">
+  <%= link_to 'Add gear to lend', new_item_path, class:"btn btn-ghost" %>
+</div>
 
-        <% end %>
-</ul>
 
-<%= link_to 'Add gear to lend', new_item_path %>
