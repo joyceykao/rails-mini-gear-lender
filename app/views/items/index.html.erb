@@ -1,7 +1,13 @@
 
 <div class="container">
   <%= form_tag items_path, method: :get do %>
-    <%= select_tag :search, options_for_select([ "stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "stroller/pram") %>
+    <%= select_tag :what, options_for_select([ "","stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "stroller/pram") %>
+    in
+    <%= text_field_tag :where,
+    params[:where],
+    class: "form-control",
+    placeholder: "city?"
+      %>
     <%= submit_tag "Show me the gear!", class: "btn btn-primary" %>
   <% end %>
 </div>

@@ -3,10 +3,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    if params[:search].blank?
+    if params[:what].blank? && params[:where].blank?
       @items = Item.all
     else
-      @items = Item.where(category: params[:search])
+      # @items = Item.where(category: params[:what], location: "%#{params[:where]}%")
+      @items = Item.where("location ILIKE ? AND category = ?", "%#{params[:where]}%", params[:what])
     end
   end
 
