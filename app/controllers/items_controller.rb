@@ -36,11 +36,14 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-
-    if @item.update(item_params)
-      redirect_to item_path(@item), notice: 'Item was successfully updated.'
+    if current_user == @item.user
+      if @item.update(item_params)
+        redirect_to item_path(@item), notice: 'Item was successfully updated.'
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to items_path, notice: "You don't own this gear so you can't edit the details."
     end
   end
 

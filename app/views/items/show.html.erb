@@ -1,4 +1,4 @@
- <div class="container">
+<div class="container">
   <% @item.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
@@ -64,3 +64,4 @@
   <%= link_to 'Back', items_path, class: "btn btn-primary mt-4" %>
   <%= link_to 'Booking', new_item_booking_path(@item), class: "btn btn-primary mt-4" %>
 </div>
+
