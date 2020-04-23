@@ -2,14 +2,31 @@
   <div class="row">
     <div class="mt-4 col-sm-12 col-lg-6">
       <h3>Book <%= @item.name %></h3>
-      <%= simple_form_for [@item, @booking] do |f| %>
-        <%= f.input :user_id %>
-        <%= f.input :start_day %>
-        <%= f.input :end_day %>
-        <%= f.button :submit, class: "btn btn-success" %>
-      <% end %>
+        <%= simple_form_for [@item, @booking] do |f| %>
+          <%= f.input :user_id %>
+          <%= f.input :start_day %>
+          <%= f.input :end_day %>
+          <%= f.button :submit, class: "btn btn-success" %>
+        <% end %>
     </div>
   </div>
-  <hr>
-    <%= link_to 'Back', item_path(@item), class: "btn btn-primary" %>
+
+  <div class="container">
+    <div class="row">
+      <div class="mt-4 col-sm-12 col-lg-6">
+        <h3>Booking Details</h3>
+          <div class='product-body'>
+          <p>Located in <strong><%= @item.location %></strong></p>
+          <p>Description: <%= @item.description%></p>
+          <p>Category: <%= @item.category%></p>
+          <p>Price Per Day: <%= @item.price_per_day %> CHF</p>
+          <p><strong>Total Price:</strong> <strong><%= @booking.total_price %></strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<hr>
+  <%= link_to 'Back', item_path(@item), class: "btn btn-primary" %>
 </div>
+

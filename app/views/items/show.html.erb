@@ -1,3 +1,8 @@
+<div class="container">
+  <% @item.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+</div>
 
 <div class="carousel"></div>
 
@@ -54,7 +59,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="container">
   <%= link_to 'Back', items_path, class: "btn btn-primary mt-4" %>

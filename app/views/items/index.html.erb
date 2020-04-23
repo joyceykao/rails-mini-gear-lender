@@ -1,22 +1,28 @@
 
-
 <div class="container">
-  <%= form_tag(search_page_path, :method => "get",
-    class: 'navbar-form navbar-left') do %>
-  <div class="input-group">
-    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-    <div class="input-group-btn">
-      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
-    </div>
-  </div>
-<% end %>
+  <%= form_tag items_path, method: :get do %>
+    <%= select_tag :what, options_for_select([ "","stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "stroller/pram") %>
+    in
+    <%= text_field_tag :where,
+    params[:where],
+    class: "form-control",
+    placeholder: "city?"
+      %>
+    <%= submit_tag "Show me the gear!", class: "btn btn-primary" %>
+  <% end %>
 </div>
 
 <h1>Stuff for rent</h1>
 
 <ul>
   <% @items.each do |item| %>
-    <li><%= link_to item.name, item, id: "link" %><%= link_to 'Edit', edit_item_path(item) %></li>
+    <li><%= link_to item.name, item, id: "link" %><%= link_to 'Edit', edit_item_path(item) %>
+      <%= link_to item_path(item),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+    </li>
 
         <% end %>
 </ul>

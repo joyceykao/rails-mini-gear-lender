@@ -13,6 +13,4 @@ Rails.application.routes.draw do
   end
 
   get '/bookings' => 'bookings#index_as_renter', :as => 'index_as_renter'
-
-  get '/search' => 'items#search', :as => 'search_page'
 end

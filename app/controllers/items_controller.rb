@@ -3,18 +3,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    if params[:search].blank?
+    if params[:what].blank? && params[:where].blank?
       @items = Item.all
     else
-      @items = Item.where(category: params[:search])
-    end
-  end
-
-  def search
-    if params[:search].blank?
-      @results = Item.all
-    else
-      @results = Item.where(category: params[:search])
+      # @items = Item.where(category: params[:what], location: "%#{params[:where]}%")
+      @items = Item.where("location ILIKE ? AND category = ?", "%#{params[:where]}%", params[:what])
     end
   end
 
@@ -55,11 +48,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :category, :price_per_day, :location, :user_id)
+    params.require(:item).permit(:name, :description, :category, :price_per_day, :location, :user_id, photos: [])
   end
 end
