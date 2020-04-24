@@ -14,7 +14,7 @@
             <li>Dates: <%= booking.start_day %> to <%= booking.end_day %></li>
             <li>Location: <%= booking.item.location %></li>
             <li>Total Price: <%= booking.total_price %> CHF</li>
-            <li class="text-right"><%= link_to "Delete this booking", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure"} %></li>
+            <li class="text-left"><%= link_to "Delete this booking", booking_path(booking), method: :delete, class:"btn btn-primary", data: {confirm: "Are you sure"} %></li>
           </ul>
         </div>
         <% end %>
