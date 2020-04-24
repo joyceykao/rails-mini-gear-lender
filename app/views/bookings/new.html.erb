@@ -1,32 +1,32 @@
-<div class="container">
-  <div class="row">
+<div class="text-center mt-5"><h2>Book <%= @item.name %></h2></div>
+<div class="container d-flex">
+  <div class="container mt-5">
+  <div class="row justify-content-center">
     <div class="mt-4 col-sm-12 col-lg-6">
-      <h3>Book <%= @item.name %></h3>
+      <h3>Select your rental start and end dates</h3>
         <%= simple_form_for [@item, @booking] do |f| %>
-          <%= f.input :user_id %>
           <%= f.input :start_day %>
           <%= f.input :end_day %>
           <%= f.button :submit, class: "btn btn-success" %>
         <% end %>
     </div>
   </div>
+<hr>
+  <%= link_to 'Back to Item', item_path(@item), class: "btn btn-default btn-lg" %>
+</div>
 
-  <div class="container">
-    <div class="row">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
       <div class="mt-4 col-sm-12 col-lg-6">
         <h3>Booking Details</h3>
           <div class='product-body'>
           <p>Located in <strong><%= @item.location %></strong></p>
-          <p>Description: <%= @item.description%></p>
-          <p>Category: <%= @item.category%></p>
-          <p>Price Per Day: <%= @item.price_per_day %> CHF</p>
-          <p><strong>Total Price:</strong> <strong><%= @booking.total_price %></strong></p>
+          <p><strong>Description:</strong> <%= @item.description%></p>
+          <p><strong>Category:</strong> <%= @item.category%></p>
+          <p><strong>Price Per Day:</strong> <%= @item.price_per_day %> CHF</p>
         </div>
       </div>
     </div>
   </div>
-
-<hr>
-  <%= link_to 'Back', item_path(@item), class: "btn btn-primary" %>
 </div>
 
