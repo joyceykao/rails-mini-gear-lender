@@ -13,9 +13,9 @@ Item.destroy_all
 Booking.destroy_all
 
 puts "Seeding users"
-user1 = User.create!(email: "lalala@gmail.com", password: "hellocucumber")
-user2 = User.create!(email: "somebody@gmail.com", password: "password123")
-user3 = User.create!(email: "dallas@hotmail.com", password: "yeehaw2020")
+user1 = User.create!(email: "lalala@gmail.com", password: "hellocucumber", first_name: "Jane", last_name: "Smith", username: "sweetpea121")
+user2 = User.create!(email: "somebody@gmail.com", password: "password123", first_name: "John", last_name: "Doe", username: "luv2hike")
+user3 = User.create!(email: "dallas@hotmail.com", password: "yeehaw2020",first_name: "Abby", last_name: "Hall", username: "Diamond Eye")
 
 puts "Seeding items"
 file = URI.open('https://images.pexels.com/photos/532803/pexels-photo-532803.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')
