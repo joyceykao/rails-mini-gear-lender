@@ -25,40 +25,40 @@
   </a>
 </div>
 
-<div class="container mt-4">
-  <h1><%= @item.name %></h1>
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
-      <div class="container">
-        <p><strong>Owner: </strong><%= @user.username %></p>
-        <p><strong>Location: </strong><%= @item.location %></p>
-        <p><strong>Category: </strong><%= @item.category %></p>
-        <h2>Description:</h2>
+<div class="container d-flex m-5">
+
+  <div class="justify-content-around">
+    <div class="mr-5 col-sm-12 col-lg-12">
+      <h1><%= @item.name %></h1>
+      <p><strong>Owner: </strong><%= @user.first_name %></p>
+      <p><strong>Location: </strong><%= @item.location %></p>
+      <p><strong>Category: </strong><%= @item.category %></p>
+      <h2>Description:</h2>
         <p><%= @item.description %></p>
         <% if current_user == @item.user %>
-          <%= link_to edit_item_path(@item) do %>
-            <i class="fas fa-pencil-alt"></i>
+        <%= link_to edit_item_path(@item) do %>
+          <i class="fas fa-pencil-alt"></i>
           <% end %>
           <%= link_to item_path(@item),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } do %>
-            <i class="fas fa-trash"></i>
-          <% end %>
+                method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+                <i class="fas fa-trash"></i>
+                <% end %>
         <% end %>
-
-      </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="container mr-4">
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-lg-6">
         <!-- Map showing the location of the item -->
         <!-- <img id="map" src=https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZXBhbGFuZGVyIiwiYSI6ImNrOGs5aHE3cjAzMmozbXA2NjIyY3VtbWsifQ.f96OEiie-0YcCe5xKQgtgw' -->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.518734250236!2d8.546746550995335!3d47.36279327906696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479aa7f798204207%3A0xee823a5ecdbfd65c!2sChainwork%20AG!5e0!3m2!1sde!2sch!4v1587631929495!5m2!1sde!2sch" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-      </div>
     </div>
   </div>
+
 </div>
 
-<div class="container">
-  <%= link_to 'Back', items_path, class: "btn btn-primary mt-4" %>
-  <%= link_to 'Booking', new_item_booking_path(@item), class: "btn btn-primary mt-4" %>
+<div class="container mb-5">
+    <%= link_to 'Back', items_path, class: "btn btn-primary mt-4" %>
+    <%= link_to 'Booking', new_item_booking_path(@item), class: "btn btn-primary mt-4" %>
 </div>
