@@ -1,10 +1,10 @@
-<div class="banner" style="">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), url(https://images.unsplash.com/photo-1526301352057-62f44bf4e826?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80);">
   <div class="container">
     <h1>Mini Gear Lender</h1>
       <p>Get what you need for your kids from your neighbor</p>
   </div>
 </div>
-
+​
 <div class="main-container">
   <div class="container">
     <h2>Stuff to rent</h2>
@@ -12,25 +12,17 @@
       <% @items.each do |item| %>
         <div class="card-category" style="background-image: url()" >
           <div class="d-flex m-2">
-          <%= link_to item.name, item, id: "link" %><%= link_to 'Edit', edit_item_path(item) %>
+          <%= link_to item.name, item, id: "link" %>
           </div>
         </div>
       <% end %>
     </div>
-
-<div class="container">
-  <div class="cards">
-    <% @items.each do |item| %>
-      <div class="card-category mt-4" style="">
-      <div class="d-flex justify-content-between m-2">
-      <%= link_to item.name, item, id: "link" %>
-      </div>
-
+​
     <div class="container mt-4">
       <%= link_to 'Add gear to lend', new_item_path, class:"btn btn-ghost" %>
     </div>
   </div>
-
+​
   <div class="container">
     <div class="container mb-4">
       <h2>What are you looking for?</h2>
@@ -39,17 +31,18 @@
       <%= select_tag :what, options_for_select([ "","stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "stroller/pram") %>
         in
     </div>
-
+​
     <div class="container mb-4">
       <%= text_field_tag :where,
         params[:where],
         class: "form-control",
         placeholder: "city?"%>
     </div>
-
+​
     <div class="d-flex container align-items: flex-end ">
       <%= submit_tag "Show me the gear!", class: "btn btn-primary" %>
     </div>
       <% end %>
     </div>
   </div>
+
