@@ -25,12 +25,12 @@ class BookingsController < ApplicationController
     @booking.item = @item
     @booking.user = current_user
     if @booking.end_day && @booking.start_day
-      @booking.total_price = (@booking.end_day - @booking.start_day).to_i * @booking.item.price_per_day.to_i / 60000
+      @booking.total_price = (@booking.end_day - @booking.start_day).to_i * @booking.item.price_per_day.to_i
     else
       @booking.total_price = 0
     end
     if @booking.save
-      redirect_to items_path, notice: 'Booking was successfully created.'
+      redirect_to index_as_renter_path, notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -49,7 +49,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to item_path(@booking.item), notice: 'Booking was successfully deleted.'
+    redirect_to index_as_renter_path, notice: 'Booking was successfully deleted.'
   end
 
   private

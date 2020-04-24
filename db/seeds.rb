@@ -32,5 +32,5 @@ dwarf_adapter = Item.create!(name:"Dwarf adapter for behind your bike", descript
 dwarf_adapter.photos.attach(io: file, filename: 'dwarf_adapter.jpeg', content_type: 'image/jpeg')
 
 puts "Seeding bookings"
-Booking.create!(total_price: 35, start_day:DateTime.new(2020,3,2), end_day:DateTime.new(2020,3,3),user: user1, item: Item.last)
-Booking.create!(total_price: 28, start_day:DateTime.new(2020,4,1), end_day:DateTime.new(2020,4,2),user: user3, item: Item.first)
+Booking.create!(total_price: 35, start_day:Date.new(2020,3,2), end_day:Date.new(2020,3,3),user: user1, item: Item.last)
+Booking.create!(total_price: 28, start_day:Date.new(2020,4,1), end_day:Date.new(2020,4,2),user: user3, item: Item.first)

@@ -49,8 +49,12 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to items_path
+    if current_user == @item.user
+      @item.destroy
+      redirect_to items_path, notice: 'Item was successfully deleted.'
+    else
+      redirect_to items_path, notice: "You don't own this gear so you can't delete it."
+    end
   end
 
   private
