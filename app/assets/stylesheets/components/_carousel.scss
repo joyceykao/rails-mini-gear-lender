@@ -1,9 +1,25 @@
 // align the image to the center
-.carousel-inner .item a img {
+.carousel-inner {
 margin: auto;
+max-height: 400x !important;
+display: flex;
 
 }
 
 .carousel-item{
-height: 400px;
+  height: 400px;
+  background-size: cover;
+  justify-content: center;
+
+}
+
+.carousel-item active{
+text-align:center;
+}
+.carousel-inner img{
+display:inline-block  !important;
+}
+
+.tales {
+  width: 100%;
 }
