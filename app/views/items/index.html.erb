@@ -5,29 +5,32 @@
   </div>
 </div>
 
-
-  <div class="container">
+<div class="container">
+<h2>What are you looking for?</h2>
+  <div class="container d-flex align-items-center">
     <div class="container mb-1">
-      <h2>What are you looking for?</h2>
-
       <%= form_tag items_path, method: :get do %>
-      <%= select_tag :what, options_for_select([ "","stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "stroller/pram") %>
-        in
+      <%= select_tag :what, options_for_select([ "","stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "") %>
+    </div>
+
+    <div class="container mb-1 text-center">
+      in
     </div>
 ​
-    <div class="container mb-1">
+    <div class="container mb-1 d-flexr">
       <%= text_field_tag :where,
         params[:where],
         class: "form-control",
         placeholder: "city?"%>
     </div>
 ​
-    <div class="d-flex container align-items: flex-end ">
+    <div class="container mb-1">
       <%= submit_tag "Show me the gear!", class: "btn btn-primary" %>
     </div>
       <% end %>
   </div>
-​
+​</div>
+
   <div class="container m-7">
     <h2>Gear for rent</h2>
     <div class="cards">
