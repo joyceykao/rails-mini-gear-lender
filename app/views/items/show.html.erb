@@ -33,6 +33,7 @@
       <p><strong>Owner: </strong><%= @user.first_name %></p>
       <p><strong>Location: </strong><%= @item.location %></p>
       <p><strong>Category: </strong><%= @item.category %></p>
+      <p><strong>Price per day: </strong><%= @item.price_per_day %> CHF</p>
       <h2>Description:</h2>
         <p><%= @item.description %></p>
         <%= link_to 'Booking', new_item_booking_path(@item), class: "btn btn-primary mt-4" %>

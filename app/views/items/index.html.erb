@@ -7,21 +7,10 @@
 
 <div class="container">
 <h2>What are you looking for?</h2>
-  <div class="container d-flex align-items-center">
+  <div class="container d-flex">
     <div class="container mb-1">
       <%= form_tag items_path, method: :get do %>
       <%= select_tag :what, options_for_select([ "","stroller/pram", "hiking carrier/backpack",  "bike trailer" ], "") %>
-    </div>
-
-    <div class="container mb-1 text-center">
-      in
-    </div>
-​
-    <div class="container mb-1 d-flexr">
-      <%= text_field_tag :where,
-        params[:where],
-        class: "form-control",
-        placeholder: "city?"%>
     </div>
 ​
     <div class="container mb-1">
