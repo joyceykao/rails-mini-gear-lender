@@ -8,9 +8,10 @@ require 'open-uri'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Cleaning users, items, bookings"
-User.destroy_all
-Item.destroy_all
 Booking.destroy_all
+Item.destroy_all
+User.destroy_all
+
 
 puts "Seeding users"
 user1 = User.create!(email: "lalala@gmail.com", password: "hellocucumber", first_name: "Jane", last_name: "Smith", username: "sweetpea121")
